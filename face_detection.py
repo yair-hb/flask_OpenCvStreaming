@@ -6,17 +6,18 @@ detectRostros = cv2.CascadeClassifier(cv2.data.haarcascades+'haarcascade_frontal
 
 while True:
     ret, frame = captura.read()
-    gris = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    if ret:
+        gris = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    rostros = detectRostros.detectMultiScale(gris, 1.3,5)
+        rostros = detectRostros.detectMultiScale(gris, 1.3,5)
 
-    for (x,y,w,h) in rostros:
-        cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)
+        for (x,y,w,h) in rostros:
+            cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)
 
-    cv2.imshow('CARAS', frame)
+        cv2.imshow('CARAS', frame)
 
-    if cv2.waitKey(1) & 0xFF == ord('s'):
-        break
+        if cv2.waitKey(1) & 0xFF == ord('s'):
+            break
 
 captura.release()
 cv2.destroyAllWindows()

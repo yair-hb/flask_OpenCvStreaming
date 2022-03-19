@@ -5,8 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Streaming</title>
+    <style> 
+        .container{
+            margin:0;
+            padding:0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(71, 84, 202);
+            color: black;
+            text-align: center;
+        }
+    </style>
 </head>
-<body>
+<body class="container">
     <h1>VIDEO EN DIRECTO</h1>   
+    <img src="{{ url_for('video_feed') }}">
 </body>
 </html>
